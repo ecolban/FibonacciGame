@@ -19,16 +19,16 @@ public class GameTest {
 	
 	@Test
 	public final void nextMoveTest() {
-		assertEquals(1, Game.nextMove(12, 1));
-		assertEquals(1, Game.nextMove(13, 4));
-		assertEquals(13, Game.nextMove(13, 7));
-		assertEquals(1, Game.nextMove(18, 2));
-		assertEquals(2, Game.nextMove(20, 4));
-		assertEquals(3, Game.nextMove(32, 2));
-		assertEquals(2, Game.nextMove(54, 10));
-		assertEquals(1, Game.nextMove(67, 2));
-		assertEquals(1, Game.nextMove(89, 11));
-		assertEquals(3, Game.nextMove(100, 3));
+		assertEquals(1, Game.nextMove(12, 1, true));
+		assertEquals(1, Game.nextMove(13, 4, true));
+		assertEquals(13, Game.nextMove(13, 7, true));
+		assertEquals(1, Game.nextMove(18, 2, true));
+		assertEquals(2, Game.nextMove(20, 4, true));
+		assertEquals(3, Game.nextMove(32, 2, true));
+		assertEquals(2, Game.nextMove(54, 10, true));
+		assertEquals(1, Game.nextMove(67, 2, true));
+		assertEquals(1, Game.nextMove(89, 11, true));
+		assertEquals(3, Game.nextMove(100, 3, true));
 	}
 	
 	@Test

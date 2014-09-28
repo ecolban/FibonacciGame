@@ -12,7 +12,7 @@ package org.jointheleague.erik.fibgame;
  * Martin Gardner provides the following hint on how to play this game: The
  * player who goes first can always win unless the initial number of coins is a
  * number in the Fibonacci sequence, in which case the player who goes second
- * can always win.
+ * can win.
  * 
  * <ul>
  * <li>How many coins should the player who goes first remove if the initial
@@ -47,7 +47,7 @@ public class Game {
 	static int firstMove(int n) {
 		int a = greatestFib(n);
 		int b = n - a;
-		if (a == n) {
+		if (b == 0) {
 			return 1;
 		} else if (2 * b < a) {
 			return b;
@@ -67,36 +67,23 @@ public class Game {
 	 * @param lastMove
 	 *            the number of coins that the other player removed in the
 	 *            previous move.
+	 * @param allOK
+	 *            true if it is OK to remove all coins if possible
 	 * @return the best possible next move
 	 */
-	static int nextMove(int n, int lastMove) {
-		if (n <= 2 * lastMove) {
+	static int nextMove(int n, int lastMove, boolean allOK) {
+		if (allOK && n <= 2 * lastMove) {
 			return n;
 		} else {
-			return nextMoveHelper(n, lastMove);
-		}
-	}
-
-	/**
-	 * Same as {@link #nextMove(int, int)}, but where removing all coins is not
-	 * an option.
-	 * 
-	 * @param n
-	 *            the number of coins currently in the pile
-	 * @param lastMove
-	 *            the number of coins that the other player removed in the
-	 *            previous move.
-	 * @return the best possible next move
-	 */
-	private static int nextMoveHelper(int n, int lastMove) {
-		int a = greatestFib(n);
-		int b = n - a;
-		if (a == n) {
-			return 1;
-		} else if (2 * b < a && b <= 2 * lastMove) {
-			return b;
-		} else {
-			return nextMoveHelper(b, lastMove);
+			int a = greatestFib(n);
+			int b = n - a;
+			if (b == 0) {
+				return 1;
+			} else if (2 * b < a && b <= 2 * lastMove) {
+				return b;
+			} else {
+				return nextMove(b, lastMove, false);
+			}
 		}
 	}
 
@@ -112,10 +99,10 @@ public class Game {
 
 	/**
 	 * @param n
-	 *            a number greater than or equal to 2.
+	 *            an integer greater than or equal to 2.
 	 * @param i
-	 *            a number in the Fibonacci sequence that is less than or equal
-	 *            to n.
+	 *            any number in the Fibonacci sequence that is less than or
+	 *            equal to n.
 	 * @param j
 	 *            the number in the Fibonacci sequence that follows i
 	 * @return the greatest number in the Fibonacci sequence that is less than
