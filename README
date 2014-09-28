@@ -1,0 +1,27 @@
+The following game is borrowed from one of Martin Gardner's books:
+ 
+The game is played between two players who take turns removing coins from a
+pile of coins initially containing at least two coins. The player who removes
+the last coin wins. The player who goes first must remove at least one coin
+but not all the coins. Thereafter, each player must remove at least one coin,
+but not more than twice the number that the other player removed last.
+ 
+Martin Gardner provides the following hint on how to play this game: The
+player who goes first can always win unless the initial number of coins is a
+number in the Fibonacci sequence, in which case the player who goes second
+can always win.
+ 
+ - How many coins should the player who goes first remove if the initial
+   number of coins is 7?
+
+ - How many coins should the player who goes first remove if the initial
+   number of coins is 20?
+ 
+The answer to the second question above is not 7. If you remove 7, then your
+opponent can remove 13 and win.
+ 
+The purpose of this project is to provide an exercise in recursive functions.
+The nature of the game itself leads to "recursive thinking". Can't win a game
+of 20 by removing 7? Break the game into two games; one of 13 and the other
+of 7. If you win the game of 7, then your opponent will be in a position
+where there are 13 coins in the pile and he/she cannot remove them all.
