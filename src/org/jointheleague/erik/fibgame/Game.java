@@ -4,10 +4,10 @@ package org.jointheleague.erik.fibgame;
  * The following game is borrowed from one of Martin Gardner's books:
  * 
  * The game is played between two players who take turns removing coins from a
- * pile of coins containing at least two coins. The player who removes the last
- * coin wins. The player who goes first must remove at least one coin but not
- * all the coins. Thereafter, each player must remove at least one coin, but not
- * more than twice the number that the other player removed last.
+ * pile of coins initially containing at least two coins. The player who removes
+ * the last coin wins. The player who goes first must remove at least one coin
+ * but not all the coins. Thereafter, each player must remove at least one coin,
+ * but not more than twice the number that the other player removed last.
  * 
  * Martin Gardner provides the following hint on how to play this game: The
  * player who goes first can always win unless the initial number of coins is a
@@ -53,7 +53,7 @@ public class Game {
 			return b;
 		} else {
 			return firstMove(b);
-		} 
+		}
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class Game {
 	 * @param lastMove
 	 *            the number of coins that the other player removed in the
 	 *            previous move.
-	 * @return the best possible first move
+	 * @return the best possible next move
 	 */
 	private static int nextMoveHelper(int n, int lastMove) {
 		int a = greatestFib(n);

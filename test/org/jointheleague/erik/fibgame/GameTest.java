@@ -8,12 +8,13 @@ public class GameTest {
 
 	@Test
 	public final void firstMoveTest() {
-		assertEquals(Game.firstMove(2), 1);
-		assertEquals(Game.firstMove(13), 1);
-		assertEquals(Game.firstMove(8), 1);
-		assertEquals(Game.firstMove(67), 12);
-		assertEquals(Game.firstMove(20), 2);
-		assertEquals(Game.firstMove(100), 11);
+		assertEquals(1, Game.firstMove(2));
+		assertEquals(1, Game.firstMove(13));
+		assertEquals(1, Game.firstMove(8));
+		assertEquals(12, Game.firstMove(67));
+		assertEquals(2, Game.firstMove(20));
+		assertEquals(1, Game.firstMove(88));
+		assertEquals(11, Game.firstMove(100));
 	}
 	
 	@Test
