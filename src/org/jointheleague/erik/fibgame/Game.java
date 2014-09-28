@@ -53,7 +53,7 @@ public class Game {
 			return b;
 		} else {
 			return firstMove(b);
-		}
+		} 
 	}
 
 	/**
